@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+// 定义生成的go代码所在包
+option go_package = ".;pb";
+
+// 定义消息体
+message Person {
+  // 值为整数，原则上从1开始，也可以不这样。不能使用19000 - 19999
+  string name = 1;
+  int32  age = 2;
+}
+
+// 定义一个gRPC服务
+service Hello {
+  rpc Hello(Person) returns (string);
+}
