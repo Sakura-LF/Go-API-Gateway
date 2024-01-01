@@ -1,7 +1,7 @@
 package grpc
 
 import (
-	pb "Go-API-Gateway/gateway/proxy/rpc_proxy/helloworld/grpc/Person"
+	pb2 "Go-API-Gateway/proxy/rpc_proxy/helloworld/grpc/Person"
 	"context"
 	"fmt"
 	"google.golang.org/grpc"
@@ -20,10 +20,10 @@ func GRPCClient() {
 	defer grpcConn.Close()
 
 	// 2.初始化客户端
-	grpcClient := pb.NewHelloClient(grpcConn)
+	grpcClient := pb2.NewHelloClient(grpcConn)
 
 	// 3.调用远程服务（函数）
-	reply, err := grpcClient.Hello(context.Background(), &pb.Person{Name: "李四", Age: 18})
+	reply, err := grpcClient.Hello(context.Background(), &pb2.Person{Name: "李四", Age: 18})
 	if err != nil {
 		fmt.Println("reply error:", err)
 		return

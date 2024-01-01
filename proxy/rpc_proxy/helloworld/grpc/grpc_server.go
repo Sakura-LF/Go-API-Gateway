@@ -1,7 +1,7 @@
 package grpc
 
 import (
-	"Go-API-Gateway/gateway/proxy/rpc_proxy/helloworld/grpc/Person"
+	"Go-API-Gateway/proxy/rpc_proxy/helloworld/grpc/Person"
 	"context"
 	"google.golang.org/grpc"
 	"log"
@@ -25,7 +25,7 @@ func GRPCSever() {
 }
 
 type HelloService struct {
-	pb.UnimplementedHelloServer
+	pb.pb
 }
 
 func (HelloService) Hello(context.Context, *pb.Person) (*pb.Person, error) {

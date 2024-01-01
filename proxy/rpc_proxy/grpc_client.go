@@ -1,7 +1,7 @@
 package rpc_proxy
 
 import (
-	"Go-API-Gateway/gateway/proxy/rpc_proxy/proto"
+	proto2 "Go-API-Gateway/proxy/rpc_proxy/proto"
 	"context"
 	"fmt"
 	"google.golang.org/grpc"
@@ -21,7 +21,7 @@ func GrpcClient() {
 	}
 	defer conn.Close()
 
-	client := proto.NewEchoClient(conn)
+	client := proto2.NewEchoClient(conn)
 
 	// 1.调用一元RPC方法
 	unaryEchoWithMetadata(client, msg)
@@ -37,7 +37,7 @@ func GrpcClient() {
 }
 
 // 调用一元RPC方法
-func unaryEchoWithMetadata(client proto.EchoClient, msg string) {
+func unaryEchoWithMetadata(client proto2.EchoClient, msg string) {
 	fmt.Println("---------UnaryEcho Client---------")
 
 	// Pairs封装一个metadata
@@ -45,7 +45,7 @@ func unaryEchoWithMetadata(client proto.EchoClient, msg string) {
 	//md.Append("authorization", "token....")
 	ctx := metadata.NewOutgoingContext(context.Background(), md) // 即将输出的请求
 
-	resp, err := client.UnaryEcho(ctx, &proto.EchoRequest{Message: msg})
+	resp, err := client.UnaryEcho(ctx, &proto2.EchoRequest{Message: msg})
 	if err != nil {
 		fmt.Println(err)
 	} else {
@@ -54,7 +54,7 @@ func unaryEchoWithMetadata(client proto.EchoClient, msg string) {
 }
 
 // 调用服务端流式处理
-func serverStreaming(client proto.EchoClient, msg string) {
+func serverStreaming(client proto2.EchoClient, msg string) {
 	fmt.Println("---------serverStreaming Client---------")
 
 	// Pairs封装一个metadata
@@ -62,7 +62,7 @@ func serverStreaming(client proto.EchoClient, msg string) {
 	//md.Append("authorization", "token....")
 	ctx := metadata.NewOutgoingContext(context.Background(), md) // 即将输出的请求
 
-	stream, err := client.ServerStreamingEcho(ctx, &proto.EchoRequest{Message: msg})
+	stream, err := client.ServerStreamingEcho(ctx, &proto2.EchoRequest{Message: msg})
 	if err != nil {
 		fmt.Println(err)
 	}
@@ -82,7 +82,7 @@ func serverStreaming(client proto.EchoClient, msg string) {
 }
 
 // 客户端流式处理
-func clientStreaming(client proto.EchoClient, msg string) {
+func clientStreaming(client proto2.EchoClient, msg string) {
 	fmt.Println("---------clientStreaming---------")
 
 	// Pairs封装一个metadata
@@ -96,7 +96,7 @@ func clientStreaming(client proto.EchoClient, msg string) {
 	}
 	// 向服务端循环发送消息
 	for i := 0; i < 5; i++ {
-		err = stream.Send(&proto.EchoRequest{Message: msg})
+		err = stream.Send(&proto2.EchoRequest{Message: msg})
 		if err != nil {
 			log.Println("Fialed to send", err)
 		}
@@ -110,7 +110,7 @@ func clientStreaming(client proto.EchoClient, msg string) {
 }
 
 // 双向流式处理
-func serverclientStreaming(client proto.EchoClient, msg string) {
+func serverclientStreaming(client proto2.EchoClient, msg string) {
 	fmt.Println("---------serverclientStreaming---------")
 
 	// Pairs封装一个metadata
@@ -126,7 +126,7 @@ func serverclientStreaming(client proto.EchoClient, msg string) {
 	// 开启一个协程向服务端发送消息
 	go func() {
 		for i := 0; i < 5; i++ {
-			err := stream.Send(&proto.EchoRequest{Message: msg})
+			err := stream.Send(&proto2.EchoRequest{Message: msg})
 			if err != nil {
 				log.Println(err)
 			}

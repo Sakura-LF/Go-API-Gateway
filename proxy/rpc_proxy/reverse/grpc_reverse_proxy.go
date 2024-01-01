@@ -1,7 +1,7 @@
 package reverse
 
 import (
-	"Go-API-Gateway/gateway/proxy/rpc_proxy/proto"
+	"Go-API-Gateway/proxy/rpc_proxy/proto"
 	"context"
 	"errors"
 	"flag"
