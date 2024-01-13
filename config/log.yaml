@@ -1,0 +1,13 @@
+zap:
+  # 日志级别,从小到大位debug,info,error,warn,error
+  level: debug
+  # 输出格式console or json
+  encoding: console
+  # 日志输出到哪
+  outputPaths:
+    - stdout
+    - /logs/logs.logs
+  # zap内部错误输出日志
+  errorOutputPaths:
+    - stderr
+    - /logs/error.logs
