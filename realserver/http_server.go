@@ -18,7 +18,7 @@ func ByConfigRunHTTPServer() {
 
 }
 
-func RealHTTPServer(addr string, port int) {
+func RealHTTPServer(addr string, port int, weight string) {
 	server := &RealServer{Addr: addr}
 	// 向consul注册服务
 	//Register(addr, port)
@@ -32,6 +32,9 @@ func RealHTTPServer(addr string, port int) {
 	ProductService.Address = addr
 	ProductService.Port = port
 	ProductService.Tags = []string{"Test"}
+	ProductService.Meta = map[string]string{
+		"weight": weight,
+	}
 
 	// 2.定义服务健康检查
 	ProductService.Checks = api.AgentServiceChecks{

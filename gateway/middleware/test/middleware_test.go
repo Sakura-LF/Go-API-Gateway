@@ -3,7 +3,7 @@ package test
 import (
 	"Go-API-Gateway/gateway/middleware/router"
 	"Go-API-Gateway/gateway/middleware/timerate"
-	http2 "Go-API-Gateway/gateway/proxy/http_proxy/http"
+	http2 "Go-API-Gateway/gateway/proxy"
 	"context"
 	"fmt"
 	"golang.org/x/time/rate"

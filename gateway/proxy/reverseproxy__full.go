@@ -1,4 +1,4 @@
-package http
+package proxy
 
 import (
 	"bytes"
@@ -7,7 +7,6 @@ import (
 	"fmt"
 	"io"
 	"io/ioutil"
-	"math/rand"
 	"net"
 	"net/http"
 	"net/http/httputil"
@@ -40,12 +39,22 @@ var (
 	}
 )
 
-func NewMultipleHostsReverseProxy(ctx context.Context, targets []*url.URL) *httputil.ReverseProxy {
+func NewMultipleHostsReverseProxy(ctx context.Context, target *url.URL) *httputil.ReverseProxy {
 	// 请求协调者
 	director := func(req *http.Request) {
 		// 随机负载均衡：提供相同服务的URLs
-		targetIndex := rand.Intn(len(targets))
-		target := targets[targetIndex]
+		//targetIndex := rand.Intn(len(targets))
+		//target := targets[targetIndex]
+
+		//nextAddr, err := balance.Get(req.URL.String())
+		//if err != nil {
+		//	log.Fatal("get next addr fail")
+		//}
+		//target, err := url.Parse(nextAddr)
+		//if err != nil {
+		//	log.Fatal(err)
+		//}
+
 		targetQuery := target.RawQuery
 
 		req.URL.Scheme = target.Scheme

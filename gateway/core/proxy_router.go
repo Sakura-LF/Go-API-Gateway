@@ -2,11 +2,12 @@ package core
 
 import "C"
 import (
-	http2 "Go-API-Gateway/gateway/proxy/http_proxy/http"
+	http2 "Go-API-Gateway/gateway/proxy"
 	config "Go-API-Gateway/init"
 	"Go-API-Gateway/util"
 	"fmt"
 	"github.com/gin-gonic/gin"
+	"log"
 	"net/http"
 	"net/url"
 	"strconv"
@@ -26,14 +27,20 @@ func Proxy() {
 	ProxyRouter.Run(util.GetHostIp() + ":" + strconv.Itoa(config.Gateway.ProxyPort))
 }
 
-func AddProxyRouter(proxyPath string, urls []*url.URL) {
+func AddProxyRouter(proxyPath string, loadbalance LoadBalance) {
 	//根据路径建立代理服务器
 	//fmt.Println(proxyPath + servicePath)
 	ProxyRouter.GET(proxyPath+"/:name", func(ctx *gin.Context) {
-		fmt.Println(ctx.Param("name"))
 		ctx.Request.URL.Path = ctx.Param("name")
 
-		proxy := http2.NewMultipleHostsReverseProxy(ctx, urls)
+		// 获取路由
+		addr, _ := loadbalance.Get(fmt.Sprintf("%s/%v", ctx.Request.Host, ctx.Request.URL))
+		addr = "http://" + addr
+		parse, err := url.Parse(addr)
+		if err != nil {
+			log.Fatalln(err)
+		}
+		proxy := http2.NewMultipleHostsReverseProxy(ctx, parse)
 
 		proxy.ServeHTTP(ctx.Writer, ctx.Request)
 	})

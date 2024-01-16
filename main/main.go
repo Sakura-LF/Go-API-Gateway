@@ -19,6 +19,10 @@ func main() {
 
 	go core.Api()
 	go core.Proxy()
-	//fmt.Println(config.ConsulConfig.Get())
+	// 并且整合到负载均衡
+
+	// 新建一个发布者
+	core.NewConcreteSubject()
+
 	select {}
 }

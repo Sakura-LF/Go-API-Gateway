@@ -23,5 +23,5 @@ func TestTestHTTPServer(t *testing.T) {
 }
 
 func TestSearchService(t *testing.T) {
-	SearchService()
+	SearchService("Test")
 }

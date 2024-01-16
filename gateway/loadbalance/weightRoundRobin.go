@@ -1,14 +1,18 @@
 package loadbalance
 
 import (
+	"Go-API-Gateway/gateway/core"
 	"strconv"
 )
 
 // RoundRobin 轮询算法实现
-type WeightRoundRobin struct {
+type WeightRoundRobinBalance struct {
 	// 当前的索引值
 	curIndex    int
 	ServerAddrs []*WeightServer
+
+	// 观察主体
+	conf core.Subject
 }
 
 type WeightServer struct {
@@ -16,31 +20,32 @@ type WeightServer struct {
 	addr string
 	// 服务器权重
 	weight int
-	// 服务器当前全栈
+	// 服务器当前权重
 	currentweight int
 	// 服务器有效权重
 	effective int
 }
 
-func (weightRoundRobin *WeightRoundRobin) Add(addr ...string) {
-	if len(addr) != 2 {
+func (weightRoundRobin *WeightRoundRobinBalance) Add(params ...string) error {
+	if len(params) != 2 {
 		panic("params need addr:weight")
 	}
-	weight, err := strconv.Atoi(addr[1])
+	weight, err := strconv.Atoi(params[1])
 	if err != nil {
 		panic("the second params need weight")
 	}
 	// 构建node
 	server := &WeightServer{
-		addr:          addr[0],
+		addr:          params[0],
 		weight:        weight,
 		currentweight: 0,
 		effective:     weight,
 	}
 	weightRoundRobin.ServerAddrs = append(weightRoundRobin.ServerAddrs, server)
+	return nil
 }
 
-func (weightRoundRobin *WeightRoundRobin) Next() string {
+func (weightRoundRobin *WeightRoundRobinBalance) Next() string {
 	// 所有节点的有效权重之和
 	effectiveTotal := 0
 

@@ -25,7 +25,7 @@ type ConsistentHashBalance struct {
 	hash Hash
 
 	// 服务器节点hash列表,按照从小到大排序
-	hashKeys UInt32Slice
+	HashKeys UInt32Slice
 
 	// 服务器节点 host值与服务器真实地址映射表
 	hashMap map[uint32]string
@@ -49,7 +49,6 @@ func NewConsistentHashBalance(replicas int, fn Hash) *ConsistentHashBalance {
 		hashMap:  make(map[uint32]string),
 		replicas: replicas,
 	}
-
 	if consistentHashBalance.hash == nil {
 		// 返回一个32位无符号整数
 		consistentHashBalance.hash = crc32.ChecksumIEEE
@@ -74,12 +73,12 @@ func (c *ConsistentHashBalance) Add(servers ...string) error {
 			// 算出的hash都是一样的,没有意义,所以要加i 以便于进行区分
 			//hash := c.hash([]byte(addr))
 			hash := c.hash([]byte(strconv.Itoa(i) + addr))
-			c.hashKeys = append(c.hashKeys, hash) // 将hash值追加到hash列表中
+			c.HashKeys = append(c.HashKeys, hash) // 将hash值追加到hash列表中
 			// 实现一个 addr 对应多个 hash值 , key: hash值, value: addr
 			c.hashMap[hash] = addr
 		}
 	}
-	sort.Sort(c.hashKeys)
+	sort.Sort(c.HashKeys)
 	//sort.Slice(c.hashKeys, func(i, j int) bool {
 	//	return c.hashKeys[i] < c.hashKeys[j]
 	//})
@@ -106,7 +105,7 @@ func (s UInt32Slice) Swap(i, j int) {
 // 2.通过二分查找最有服务器节点
 // 3.取出服务器
 func (c *ConsistentHashBalance) Get(key string) (string, error) {
-	length := len(c.hashKeys)
+	length := len(c.HashKeys)
 	if length == 0 {
 		return "", errors.New("node list is Empty")
 	}
@@ -116,7 +115,7 @@ func (c *ConsistentHashBalance) Get(key string) (string, error) {
 
 	// 2.通过二分查找最有服务器节点
 	index := sort.Search(length, func(i int) bool {
-		return c.hashKeys[i] >= hash
+		return c.HashKeys[i] >= hash
 	})
 	// 如果返回的index==lenght,就意味着没有查到,所以直接返回第一个节点
 	if index == length {
@@ -127,5 +126,5 @@ func (c *ConsistentHashBalance) Get(key string) (string, error) {
 	c.mux.RLock()
 	defer c.mux.RUnlock()
 
-	return c.hashMap[c.hashKeys[index]], nil
+	return c.hashMap[c.HashKeys[index]], nil
 }

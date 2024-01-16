@@ -243,7 +243,20 @@ type ServiceObjects struct {
 	Item map[string]string
 }
 
-func SearchService() {
+//type GateWayService struct {
+//	Data map[string][]ServiceItems
+//}
+//
+//type ServiceItems struct {
+//	Id        string
+//	Name      string
+//	CreatedAt int64
+//	UpdatedAt int64
+//	Host      string
+//	Protocol  string
+//}
+
+func SearchService(name string) {
 	consulApiConfig := api.DefaultConfig()
 	consulApiConfig.Address = ConsulAddress //地址为consult地址
 	consulClient, err := api.NewClient(consulApiConfig)
@@ -251,24 +264,25 @@ func SearchService() {
 		log.Println(err)
 		return
 	}
-	services := Services{Name: make(map[string]ServiceObjects)}
-	objects := ServiceObjects{Item: make(map[string]string)}
-	// 查询对应的服务
-	services.Name["Test"] = objects
+	// 初始化结构体
+	//services := Services{Name: make(map[string]ServiceObjects)}
+	//objects := ServiceObjects{Item: make(map[string]string)}
 
-	filter := "Service==Test"
+	// 查询对应的服务
+	filter := "Service==" + name // 拼接filter
+
+	// 每隔10秒查询一次
 	for {
 		allservices, err := consulClient.Agent().ServicesWithFilter(filter)
 		if err != nil {
 			log.Fatalln(err)
 		}
-
 		for id, service := range allservices {
-			objects.Item[service.ID] = fmt.Sprintf("%s:%d", service.Address, service.Port)
-			fmt.Println(id, service.Address, service.Port)
+			host := fmt.Sprintf("%s:%d", service.Address, service.Port)
+			fmt.Println("id:", id, " ", host)
+			fmt.Println(service.Meta["weight"])
+
 		}
-		fmt.Println("-----------")
-		fmt.Println(services)
 		time.Sleep(time.Second * 10)
 	}
 }
