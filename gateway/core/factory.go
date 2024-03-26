@@ -15,11 +15,11 @@ type LoadBalance interface {
 
 	Get(string) (string, error)
 
-	////后期服务发现补充
+	//后期服务发现补充
 	Update()
 }
 
-// m Random or RoundRobin or WeightRoundRobin or ConsistenHash
+// LoadBalanceFactory m Random or RoundRobin or WeightRoundRobin or ConsistenHash
 func LoadBalanceFactory(balanceType LoadBalanceType, consul Subject) LoadBalance {
 	switch balanceType {
 	case RoundRobin:

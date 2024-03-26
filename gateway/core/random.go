@@ -6,7 +6,7 @@ import (
 	"math/rand"
 )
 
-// Random 随机算法实现
+// RandomBalance Random 随机算法实现
 type RandomBalance struct {
 	// 当前的索引值
 	CurIndex int

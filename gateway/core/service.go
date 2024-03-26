@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"log"
 	"strconv"
+	"sync"
 	"time"
 )
 
@@ -47,10 +48,22 @@ type RouterItems struct {
 	UpdatedAt int64
 	Path      []string
 	Protocol  string
+	Plugin    []PluginConfig
+}
+
+type PluginConfig struct {
+	RateLimiter RateLimiter
+}
+
+// RateLimiter limiter := rate.NewLimiter(rate.Every(time.Second), 1)
+type RateLimiter struct {
+	Name   string
+	Second int
+	Burst  int
 }
 
 // LoadService 从consul中将服务绑定到Service中
-func LoadService(name string) {
+func LoadService(name string, wg *sync.WaitGroup) {
 	var serviceItems ServiceItems
 
 	// 查询对应的服务
@@ -80,6 +93,7 @@ func LoadService(name string) {
 				}
 				Service.Data[name] = append(Service.Data[name], serviceItems)
 			}
+			wg.Done()
 			//fmt.Println("-----------")
 			//fmt.Println(Service)
 			time.Sleep(time.Second * 10)

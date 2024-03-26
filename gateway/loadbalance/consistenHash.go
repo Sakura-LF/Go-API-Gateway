@@ -42,7 +42,7 @@ type Hash func(data []byte) uint32
 
 type UInt32Slice []uint32
 
-// NewConsistentHashBalance 初筛话一致性Hash结构体
+// NewConsistentHashBalance 初始化一致性Hash结构体
 func NewConsistentHashBalance(replicas int, fn Hash) *ConsistentHashBalance {
 	consistentHashBalance := &ConsistentHashBalance{
 		hash:     fn,

@@ -12,13 +12,12 @@ type GateWay struct {
 }
 
 var (
-	LogConfig    *viper.Viper
 	Gateway      *GateWay
 	ConsulConfig *viper.Viper
 )
 
 func InitConfig() {
-	LogConfig = LoadConfig("log")
+	LogInit()
 	ConsulConfig = LoadConfig("consul")
 	UnmarshalStruct("gateway")
 	InitConsul()

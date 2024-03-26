@@ -48,8 +48,8 @@ func NewSingleHostReverseProxy(addr string) *TCPReverseProxy {
 // 3.接收下游响应
 // 4.拷贝/修改,响应到上游连接
 func (tcpProxy *TCPReverseProxy) ServeTCP(ctx context.Context, src net.Conn) {
-	var cancel context.CancelFunc  // 煎炒是否有取消操作
-	if tcpProxy.DialTimeout >= 0 { // 连接超时时间时间
+	var cancel context.CancelFunc  // 检查是否有取消操作
+	if tcpProxy.DialTimeout >= 0 { // 连接超时时间
 		ctx, cancel = context.WithTimeout(ctx, tcpProxy.DialTimeout)
 	}
 	if tcpProxy.Deadline >= 0 { // 连接截止时间

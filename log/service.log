@@ -1,0 +1,62 @@
+{"level":"debug","time":"Mar 25 19:23:32.868","caller":"F:/Go-Project/Go-API-Gateway/main/main.go:27","message":"Sakura"}
+{"level":"debug","time":"Mar 25 19:24:06.587","caller":"F:/Go-Project/Go-API-Gateway/main/main.go:27","message":"API 网关启动"}
+{"level":"debug","time":"Mar 25 19:31:22.700","caller":"F:/Go-Project/Go-API-Gateway/main/main.go:27","message":"API 网关启动!"}
+{"level":"debug","time":"Mar 25 19:32:39.691","caller":"F:/Go-Project/Go-API-Gateway/main/main.go:27","message":"API 网关启动!"}
+{"level":"error","time":"Mar 25 19:32:39.702","caller":"F:/Go-Project/Go-API-Gateway/main/main.go:28","message":"API 网关启动!"}
+{"level":"warn","time":"Mar 25 19:32:39.702","caller":"F:/Go-Project/Go-API-Gateway/main/main.go:29","message":"API 网关启动!"}
+{"level":"info","time":"Mar 25 19:32:39.702","caller":"F:/Go-Project/Go-API-Gateway/main/main.go:30","message":"API 网关启动!"}
+{"level":"debug","time":"Mar 25 19:38:46.655","caller":"F:/Go-Project/Go-API-Gateway/main/main.go:22","message":"API 网关启动!"}
+{"level":"error","time":"Mar 25 19:38:46.665","caller":"F:/Go-Project/Go-API-Gateway/main/main.go:23","message":"API 网关启动!"}
+{"level":"warn","time":"Mar 25 19:38:46.665","caller":"F:/Go-Project/Go-API-Gateway/main/main.go:24","message":"API 网关启动!"}
+{"level":"info","time":"Mar 25 19:38:46.666","caller":"F:/Go-Project/Go-API-Gateway/main/main.go:25","message":"API 网关启动!"}
+{"level":"debug","time":"Mar 25 21:19:58.055","caller":"F:/Go-Project/Go-API-Gateway/main/main.go:22","message":"API 网关启动!"}
+{"level":"error","time":"Mar 25 21:19:58.068","caller":"F:/Go-Project/Go-API-Gateway/main/main.go:23","message":"API 网关启动!"}
+{"level":"warn","time":"Mar 25 21:19:58.068","caller":"F:/Go-Project/Go-API-Gateway/main/main.go:24","message":"API 网关启动!"}
+{"level":"info","time":"Mar 25 21:19:58.068","caller":"F:/Go-Project/Go-API-Gateway/main/main.go:25","message":"API 网关启动!"}
+{"level":"debug","time":"Mar 25 22:12:18.307","caller":"F:/Go-Project/Go-API-Gateway/main/main.go:22","message":"API 网关启动!"}
+{"level":"error","time":"Mar 25 22:12:18.317","caller":"F:/Go-Project/Go-API-Gateway/main/main.go:23","message":"API 网关启动!"}
+{"level":"warn","time":"Mar 25 22:12:18.317","caller":"F:/Go-Project/Go-API-Gateway/main/main.go:24","message":"API 网关启动!"}
+{"level":"info","time":"Mar 25 22:12:18.317","caller":"F:/Go-Project/Go-API-Gateway/main/main.go:25","message":"API 网关启动!"}
+{"level":"debug","time":"Mar 25 22:13:11.188","caller":"F:/Go-Project/Go-API-Gateway/main/main.go:22","message":"API 网关启动!"}
+{"level":"error","time":"Mar 25 22:13:11.198","caller":"F:/Go-Project/Go-API-Gateway/main/main.go:23","message":"API 网关启动!"}
+{"level":"warn","time":"Mar 25 22:13:11.199","caller":"F:/Go-Project/Go-API-Gateway/main/main.go:24","message":"API 网关启动!"}
+{"level":"info","time":"Mar 25 22:13:11.199","caller":"F:/Go-Project/Go-API-Gateway/main/main.go:25","message":"API 网关启动!"}
+{"level":"debug","time":"Mar 25 22:18:29.335","caller":"F:/Go-Project/Go-API-Gateway/main/main.go:22","message":"API 网关启动!"}
+{"level":"error","time":"Mar 25 22:18:29.345","caller":"F:/Go-Project/Go-API-Gateway/main/main.go:23","message":"API 网关启动!"}
+{"level":"warn","time":"Mar 25 22:18:29.345","caller":"F:/Go-Project/Go-API-Gateway/main/main.go:24","message":"API 网关启动!"}
+{"level":"info","time":"Mar 25 22:18:29.345","caller":"F:/Go-Project/Go-API-Gateway/main/main.go:25","message":"API 网关启动!"}
+{"level":"debug","time":"Mar 25 22:18:42.664","caller":"F:/Go-Project/Go-API-Gateway/main/main.go:22","message":"API 网关启动!"}
+{"level":"error","time":"Mar 25 22:18:42.674","caller":"F:/Go-Project/Go-API-Gateway/main/main.go:23","message":"API 网关启动!"}
+{"level":"warn","time":"Mar 25 22:18:42.674","caller":"F:/Go-Project/Go-API-Gateway/main/main.go:24","message":"API 网关启动!"}
+{"level":"info","time":"Mar 25 22:18:42.674","caller":"F:/Go-Project/Go-API-Gateway/main/main.go:25","message":"API 网关启动!"}
+{"level":"debug","time":"Mar 25 22:20:49.897","caller":"F:/Go-Project/Go-API-Gateway/main/main.go:22","message":"API 网关启动!"}
+{"level":"error","time":"Mar 25 22:20:49.907","caller":"F:/Go-Project/Go-API-Gateway/main/main.go:23","message":"API 网关启动!"}
+{"level":"warn","time":"Mar 25 22:20:49.907","caller":"F:/Go-Project/Go-API-Gateway/main/main.go:24","message":"API 网关启动!"}
+{"level":"info","time":"Mar 25 22:20:49.907","caller":"F:/Go-Project/Go-API-Gateway/main/main.go:25","message":"API 网关启动!"}
+{"level":"debug","time":"Mar 25 22:29:00.483","caller":"F:/Go-Project/Go-API-Gateway/main/main.go:22","message":"API 网关启动!"}
+{"level":"error","time":"Mar 25 22:29:00.494","caller":"F:/Go-Project/Go-API-Gateway/main/main.go:23","message":"API 网关启动!"}
+{"level":"warn","time":"Mar 25 22:29:00.495","caller":"F:/Go-Project/Go-API-Gateway/main/main.go:24","message":"API 网关启动!"}
+{"level":"info","time":"Mar 25 22:29:00.495","caller":"F:/Go-Project/Go-API-Gateway/main/main.go:25","message":"API 网关启动!"}
+{"level":"info","time":"Mar 25 22:29:10.446","caller":"F:/Go-Project/Go-API-Gateway/gateway/core/api_router.go:55","message":"获取所有服务"}
+{"level":"debug","time":"Mar 25 22:29:40.274","caller":"F:/Go-Project/Go-API-Gateway/main/main.go:22","message":"API 网关启动!"}
+{"level":"error","time":"Mar 25 22:29:40.285","caller":"F:/Go-Project/Go-API-Gateway/main/main.go:23","message":"API 网关启动!"}
+{"level":"warn","time":"Mar 25 22:29:40.285","caller":"F:/Go-Project/Go-API-Gateway/main/main.go:24","message":"API 网关启动!"}
+{"level":"info","time":"Mar 25 22:29:40.285","caller":"F:/Go-Project/Go-API-Gateway/main/main.go:25","message":"API 网关启动!"}
+{"level":"info","time":"Mar 25 22:29:50.631","caller":"F:/Go-Project/Go-API-Gateway/gateway/core/api_router.go:55","message":"获取 API 网关所有服务"}
+{"level":"info","ServiceName":"User","time":"Mar 25 22:29:57.869","caller":"F:/Go-Project/Go-API-Gateway/gateway/core/api_router.go:50","message":"服务添加成功"}
+{"level":"info","time":"Mar 25 22:30:19.237","caller":"F:/Go-Project/Go-API-Gateway/gateway/core/api_router.go:99","message":"获取所有路由"}
+{"level":"info","Route":"/user","ServiceName":"User","time":"Mar 25 22:30:29.611","caller":"F:/Go-Project/Go-API-Gateway/gateway/core/api_router.go:94","message":"路由添加成功"}
+{"level":"info","time":"Mar 25 22:33:32.402","caller":"F:/Go-Project/Go-API-Gateway/gateway/core/api_router.go:99","message":"获取所有路由"}
+{"level":"debug","time":"Mar 25 22:59:48.189","caller":"F:/Go-Project/Go-API-Gateway/main/main.go:22","message":"API 网关启动!"}
+{"level":"error","time":"Mar 25 22:59:48.199","caller":"F:/Go-Project/Go-API-Gateway/main/main.go:23","message":"API 网关启动!"}
+{"level":"warn","time":"Mar 25 22:59:48.199","caller":"F:/Go-Project/Go-API-Gateway/main/main.go:24","message":"API 网关启动!"}
+{"level":"info","time":"Mar 25 22:59:48.200","caller":"F:/Go-Project/Go-API-Gateway/main/main.go:25","message":"API 网关启动!"}
+{"level":"info","ServiceName":"User","time":"Mar 25 23:00:05.637","caller":"F:/Go-Project/Go-API-Gateway/gateway/core/api_router.go:80","message":"服务添加成功"}
+{"level":"info","time":"Mar 25 23:03:07.479","caller":"F:/Go-Project/Go-API-Gateway/gateway/core/api_router.go:129","message":"获取所有路由"}
+{"level":"info","Route":"/user","ServiceName":"User","time":"Mar 25 23:03:12.630","caller":"F:/Go-Project/Go-API-Gateway/gateway/core/api_router.go:124","message":"路由添加成功"}
+{"level":"debug","time":"Mar 25 23:06:54.294","caller":"F:/Go-Project/Go-API-Gateway/main/main.go:22","message":"API 网关启动!"}
+{"level":"error","time":"Mar 25 23:06:54.305","caller":"F:/Go-Project/Go-API-Gateway/main/main.go:23","message":"API 网关启动!"}
+{"level":"warn","time":"Mar 25 23:06:54.305","caller":"F:/Go-Project/Go-API-Gateway/main/main.go:24","message":"API 网关启动!"}
+{"level":"info","time":"Mar 25 23:06:54.305","caller":"F:/Go-Project/Go-API-Gateway/main/main.go:25","message":"API 网关启动!"}
+{"level":"info","ServiceName":"User","time":"Mar 25 23:06:58.182","caller":"F:/Go-Project/Go-API-Gateway/gateway/core/api_router.go:83","message":"服务添加成功"}
+{"level":"info","Route":"/user","ServiceName":"User","time":"Mar 25 23:07:03.180","caller":"F:/Go-Project/Go-API-Gateway/gateway/core/api_router.go:127","message":"路由添加成功"}

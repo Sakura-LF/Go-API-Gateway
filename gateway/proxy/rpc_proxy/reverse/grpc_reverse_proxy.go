@@ -26,10 +26,7 @@ func GrpcProxy() {
 
 	// 代理服务器不知道/也不必知道,下游服务器的服务名称
 	// UnknownServiceHandler
-	// 1.处理未知服务名称的处理程序
-	// 2.返回一个 ServerOption,允许添加自定义的位置服务处理程序
-	// 3.提供的服务方法是:双向流式处理,因为双向流式处理兼容另外三种服务
-	// 4.handler 处理所有的客户端调用(拦截器)
+
 	serverOption := grpc.UnknownServiceHandler(handler)
 	grpcserver := grpc.NewServer(serverOption)
 	grpcserver.Serve(listen)
